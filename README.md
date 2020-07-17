@@ -1,2 +1,5 @@
 # cyberServer 
-vert cool
+run in bush shell
+$ export FLASK_APP=f_test.py
+$ python -m flask run
+ * Running on http://127.0.0.1:5000/
