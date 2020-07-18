@@ -29,6 +29,22 @@ def write_messeges(messeges):
         (messeges, default=obj_to_dict)
     with open("Message_log.json", "w") as file:
         file.write(json_string)
+    #make_it_eazy_to_read(messeges)
+
+
+def make_it_eazy_to_read(messeges):
+    f = " "
+    with open("Message_log.json", "r") as file:
+        f = file.read()
+        print("f is here")
+        print(f)
+        for c,i in enumerate(f):
+            if c == ",":
+                f = f[:i:]+r"/n"+f[i+1::]
+                print("did a change")
+                print (f)
+    with open("Message_log.json", "w") as file:
+        file.write(f)
 
 def read_messeges():
     mm = []
