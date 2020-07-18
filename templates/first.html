@@ -2,7 +2,7 @@
 <html>
 <head>
 <script>
-ffunction startTime() {
+function startTime() {
   var today = new Date();
   var h = today.getHours();
   var m = today.getMinutes();
@@ -28,8 +28,6 @@ function closeForm() {
 <title>
     wineer
 </title>
-     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       body {
   margin: 0 auto;
@@ -141,7 +139,7 @@ function closeForm() {
 </head>
 <body onload="startTime()">
 
-<div id="txt"></div>
+
 {%- if messeges %}
 <p> in the messeges</p>
 {%- for message in messeges %}
@@ -171,14 +169,14 @@ function closeForm() {
 <button class="open-button" onclick="openForm()">Chat</button>
 
 <div class="chat-popup" id="myForm">
-  <form action=""method="post"  class="form-container">
+  <form action=""method="post"  class="form-container" oninput=>
     <h1>Chat</h1>
 
     <label for="msg"><b>Message</b></label>
     <textarea placeholder="Type message.." name="msg" required></textarea>
     <textarea placeholder="Type message.." name="name" required></textarea>
-    <textarea placeholder="Type message.." name="time" onload="startTime()"id = "time" required></textarea>
-      <button type="submit" class="btn">Send</button>
+     <input type="hidden" id="txt" >
+	<button type="submit" class="btn">Send</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
