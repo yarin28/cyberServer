@@ -25,10 +25,9 @@ def obj_to_dict(obj):
 def write_messeges(messeges):
     dt = {}
     dt.update(vars(Message))
-    json_string = json.dumps\
-        (messeges, default=obj_to_dict)
     with open("Message_log.json", "w") as file:
-        file.write(json_string)
+        file.write(json.dumps\
+        (messeges, default=obj_to_dict,indent=4))
     #make_it_eazy_to_read(messeges)
 
 
