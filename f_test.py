@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     messages = read_messeges()
 
-    if request.method == 'POST':
+    if request.form:
         print('data=====')
         print(request.form)
         messages.append(Message(request.form.get('msg'),
@@ -16,8 +16,8 @@ def index():
                                 request.form.get('timestamp')))
         # print(messages)
         write_messeges(messages)
-    return render_template('first.html', name="weeee",
-                           blobs=[1, 2, 3, 4, 5, 6], messeges=messages)
+    return render_template('chatUi.html', name="weeee",
+                           messeges=messages)
 
 
 if __name__ == "__main__":

@@ -1,16 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <title>wineer</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="messages.css" type="text/css" rel="stylesheet">
-    <link href="forChat.css" type="text/css" rel="stylesheet" >
-    <link href="allWebKit.css" type="text/css" rel="stylesheet">
-    <link href="type.css" type="text/css" rel="stylesheet">
-    <link href="menu.css" type="text/css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='messages.css') }}" />
+
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='forChat.css') }}" />
+
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='allWebKit.css') }}" />
+
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='type.css') }}" />
+
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}" />
+    <script src="{{ url_for('static', filename='time.js') }}"></script>
 </head>
 <body onload="startTime()">
 <div class="menu">
@@ -18,112 +24,27 @@
 	<div class="members">by yarin</div>
         </div>
 
-
+{%- if messeges %}
+<p> in the messeges</p>
     <ol class="chat">
-    <li class="other">
-      <div class="msg">
-        <p>Dude</p>
-        <p>Want to go dinner?</p>
-        <time>20:17</time>
-      </div>
-    </li>
-    <li class="self">
-      <div class="msg">
-        <p>Puff...</p>
-        <p>I'm still doing the Góngora comment... </p>
-        <p>Better other day</p>
-        <time>20:18</time>
-      </div>
-    </li>
-    <li class="other">
-      <div class="msg"><p>What comment about Góngora? </p>
-        <time>20:18</time>
-      </div>
-    </li>
-    <li class="self">
-      <div class="msg">
-        <p>The comment sent Marialu</p>
-        <p>It's for tomorrow</p>
-        <time>20:18</time>
-      </div>
-    </li>
-    <li class="other">
-      <div class="msg"><p>Hand it to me! </p>
-        <time>20:18</time>
-      </div>
-    </li>
-    <li class="other">
-      <div class="msg"><p>Thank you! </p>
-        <time>20:20</time>
-      </div>
-    </li>
-    <li class="self">
-      <div class="msg">
-        <p>Who wants to play Minecraft?</p>
-        <time>18:03</time>
-      </div>
-    </li>
-    <li class="other">
-      <div class="msg">
-        <p>Come on, I didn't play it for four months</p>
-        <time>18:07</time>
-      </div>
-    </li>
-    <li class="self">
-      <div class="msg">
-        <p>Ehh, the launcher crash... </p>
-        <time>18:08</time>
-      </div>
-    </li>
-    <li class="other">
-      <div class="msg">
-        <p>Sure that is the base code</p>
-        <p>I told it to Mojang</p>
-        <time>18:08</time>
-      </div>
-    </li>
-    <li class="self">
-      <div class="msg">
-        <p>It's a joke</p>
-        <p>Moai attack!</p>
-        <time>18:10</time>
-      </div>
-    </li>
-    <li class="other">
-      <div class="msg">
-        <p>XD</p>
-        <p>Heart for this awesome design!</p>
-        <time>18:08</time>
-      </div>
-    </li>
-    <li class="self">
-      <div class="msg">
-        <p>Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeellooooooooooooooooooooooooooooooo David</p>
-        <time>18:09</time>
-      </div>
-    </li>
-    <li class="other">
-      <div class="msg">
-          <p>What is that  ?</p>
-        <time>18:10</time>
-      </div>
-    </li>
-    <li class="other">
-      <div class="msg">
-        <p>Lol?</p>
-        <time>18:12</time>
-      </div>
-    </li>
-    <li class="other">
-      <div class="msg">
-        <p>I'm boring...</p>
-        <p>Who wants to do some logarithms? </p>
-        <time>18:15</time>
-      </div>
-    </li>
+    {%- for message in messeges %}
+        {%- if message.sender == '1' %}
+            <li class="other">
+        {%- else %}
+            <li class="self">
+         {%- endif %}
+         <div class="msg">
+         <p>{{message.message}}</p>
+         <time>{{message.time}}</time>
+        </div>
+        </li>
+        {%- endfor %}
+        {%- endif %}
     </ol>
 <div class="typezone">
-<form><textarea type="text" placeholder="Say something"></textarea><input type="submit" class="send" value=""/></form>
+<form><textarea type="text" name="msg" placeholder="Say something"></textarea>
+     <input type="hidden" id="txt" name="time" >
+    <input type="submit" class="send" value=""/></form>
 <div class="emojis"></div></div>
 </body>
 </html>
