@@ -1,0 +1,9 @@
+html, body {
+    background: #252C33;
+    font-family: 'Lato', sans-serif;
+    margin: 0px auto;
+}
+::selection{
+  background: rgba(82,179,217,0.3);
+  color: inherit;
+}
