@@ -1,7 +1,7 @@
 [
     {
         "message": "hello",
-        "sender": 1,
+        "sender": "1",
         "time": 1112
     },
     {
@@ -9,5 +9,4 @@
         "sender": "2",
         "time": ""
     }
-
 ]

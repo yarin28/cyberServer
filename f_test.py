@@ -7,13 +7,12 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     messages = read_messeges()
-
-    if request.form:
+    print(request.args.get('msg'))
+    if request.args:
         print('data=====')
         print(request.form)
-        messages.append(Message(request.form.get('msg'),
-                                request.form.get('name'),
-                                request.form.get('timestamp')))
+        messages.append(Message(request.args.get('msg'),
+                                request.args.get('time')))
         # print(messages)
         write_messeges(messages)
     return render_template('chatUi.html', name="weeee",
