@@ -72,7 +72,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
 }
-.msg .user .range.admin {
+.msg .user  {
     display: inline-block;
     font-size: 10px;
     font-weight: 300;
