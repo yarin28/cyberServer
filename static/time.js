@@ -1,3 +1,9 @@
+function startAll(){
+    toBottom();
+    startTime();
+
+}
+
 function startTime() {
   var today = new Date();
   var h = today.getHours();
@@ -12,4 +18,9 @@ function startTime() {
 function checkTime(i) {
   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
   return i;
+}
+function toBottom()
+{
+    window.scrollTo(0, document.body.scrollHeight);
+    document.getElementById("big").innerHTML = "in scroll";
 }
