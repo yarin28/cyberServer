@@ -12,6 +12,7 @@ def index():
         print('data=====')
         print(request.form)
         messages.append(Message(request.args.get('msg'),
+                                request.args.get('user'),
                                 request.args.get('time')))
         # print(messages)
         write_messeges(messages)
