@@ -1,4 +1,5 @@
 function startAll(){
+   // when the page is loaded.
     toBottom();
     startTime();
 

@@ -7,9 +7,6 @@ class Message:
         self.sender = sender
         self.time = time
 
-    def __repr__(self):
-        return 'the class itself'
-
     def __str__(self):
         return f'{self.message} +{self.sender} +{self.time}'
 
@@ -49,7 +46,6 @@ def main():
         (messages, default=obj_to_dict)
     with open("Message_log.json", "w") as file:
         file.write(json_string)
-
 
 if __name__ == "__main__":
     read_messeges()

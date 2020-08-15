@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from .messege_saver import Message, read_messeges, write_messeges
+from .messege import Message, read_messeges, write_messeges
 
 app = Flask(__name__)
 
