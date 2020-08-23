@@ -23,5 +23,4 @@ function checkTime(i) {
 function toBottom()
 {
     window.scrollTo(0, document.body.scrollHeight);
-    document.getElementById("big").innerHTML = "in scroll";
 }
